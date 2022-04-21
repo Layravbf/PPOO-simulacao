@@ -3,7 +3,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 
 /**
- * O tipo de veículo Navio.
+ * O Navio da simulação.
  */
 public class Navio implements ItemDesenhavel, Ator {
     private Vinho vinho;
@@ -19,8 +19,8 @@ public class Navio implements ItemDesenhavel, Ator {
      * @throws NullPointerException Se a empresa ou a localização for nula.
      */
     public Navio(EmpresaNavio empresa, Localizacao localizacao) {
-        imagemVazia = new ImageIcon(getClass().getResource( "imagens/navio.jpg")).getImage();
-        imagemNavioComVinho = new ImageIcon(getClass().getResource("imagens/navio+vinho.jpg")).getImage();
+        imagemVazia = new ImageIcon(getClass().getResource( "imagens/navio.png")).getImage();
+        imagemNavioComVinho = new ImageIcon(getClass().getResource("imagens/navio+vinho.png")).getImage();
         this.empresa = empresa;
         this.localizacaoAtual = localizacao;
         localizacaoDestino = null;
@@ -47,7 +47,7 @@ public class Navio implements ItemDesenhavel, Ator {
     }
 
     /**
-     * Pega a localização atual do veículo.
+     * Pega a localização atual do navio.
      * @return A localização atual.
      */
     public Localizacao getLocalizacaoAtual() {
@@ -55,7 +55,7 @@ public class Navio implements ItemDesenhavel, Ator {
     }
 
     /**
-     * Define a localização atual do veículo.
+     * Define a localização atual do navio.
      * @param localizacao A localização que está.
      * @throws NullPointerException Se a localização é nula.
      */
@@ -85,7 +85,7 @@ public class Navio implements ItemDesenhavel, Ator {
 
     /**
      * Verifica se o navio está disponível.
-     * @return True se estiver disponível ou false se não estiver..
+     * @return True se estiver disponível ou false se não estiver.
      */
     public boolean estaDisponivel() {
         return getLocalizacaoDestino() == null && vinho == null;
@@ -117,7 +117,7 @@ public class Navio implements ItemDesenhavel, Ator {
     }
 
     /**
-     * Pega a localização de destino do veículo.
+     * Pega a localização de destino do navio.
      * @return A localização de destino do navio ou null se ele não estiver indo pra lugar nenhum.
      */
     public Localizacao getLocalizacaoDestino() {
@@ -125,8 +125,8 @@ public class Navio implements ItemDesenhavel, Ator {
     }
 
     /**
-     * Salva a localização de destino do veículo.
-     * @param localizacao Para onde o veículo está indo.
+     * Salva a localização de destino do navio.
+     * @param localizacao Para onde o navio está indo.
      * @throws NullPointerException Se a localização for nula.
      */
     public void setLocalizacaoDestino(Localizacao localizacao) {
@@ -146,7 +146,7 @@ public class Navio implements ItemDesenhavel, Ator {
     }
     
     /**
-     * Define qual imagem é a do estado atual: imagem do navio com o vinho  dentro ou imagem vazia.
+     * Define qual imagem é a do estado atual: imagem do navio com o vinho dentro ou imagem vazia.
      */
     public Image getImagem() {
         if(vinho != null) {
@@ -156,13 +156,4 @@ public class Navio implements ItemDesenhavel, Ator {
             return imagemVazia;
         }
     }
-
-    /**
-     * Return details of the taxi, such as where it is.
-     * @return A string representation of the taxi.
-     */
-   // public String toString()
-   // {
-   //     return "Vinho at " + getLocalizacaoAtual();
-  //  }
 }

@@ -8,10 +8,10 @@ import java.util.List;
  * @author David J. Barnes and Michael Kolling and Luiz Merschmann
  */
 public class Simulacao {
-    private List<Ator> atores;
+   private static List<Ator> atores;
 
    /**
-    * Construtor da classe simulação
+    * Construtor da classe Simulação
     */
     public Simulacao() {
         atores = new LinkedList<Ator>();
@@ -20,6 +20,7 @@ public class Simulacao {
         FonteVinho fonte = new FonteVinho(mapa, empresa);
         
         atores.addAll(empresa.getNavios());
+        atores.addAll(empresa.getBancosAreia());
         atores.add(fonte);
         atores.add(new JanelaSimulacao(mapa));
     }
@@ -54,5 +55,13 @@ public class Simulacao {
         } catch (InterruptedException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    /**
+     * Pega os atores da simulação.
+     * @return List de atores
+     */
+    public static List<Ator> getAtores(){
+        return atores;
     }
 }

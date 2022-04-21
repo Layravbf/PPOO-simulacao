@@ -4,7 +4,6 @@ import java.awt.Image;
 /**
  * O item tem a imagem de si próprio.
  */
-
 public interface ItemDesenhavel extends Item {
     
     /**

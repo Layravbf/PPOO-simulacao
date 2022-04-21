@@ -1,5 +1,6 @@
 package simulacao;
 
+import java.util.Iterator;
 /**
  * Representa uma localização no mapa
  * @author David J. Barnes and Michael Kolling and Luiz Merschmann
@@ -28,18 +29,33 @@ public class Localizacao {
     }
     
     /**
-     * Gera a localizacao para se mover visando alcançar o destino
+     * Gera a localizacao para se mover visando alcançar o destino e desviando de navios e bancos de areia
      * @param localizacaoDestino Localizacao que se deseja alcancar.
      * @return Localizacao para onde se deve ir
      */
     public Localizacao proximaLocalizacao(Localizacao localizacaoDestino) {
-    
         int destX = localizacaoDestino.getX();
         int destY = localizacaoDestino.getY();
         int offsetX = x < destX ? 1 : x > destX ? -1 : 0;
         int offsetY = y < destY ? 1 : y > destY ? -1 : 0;
         if(offsetX != 0 || offsetY != 0) {
-            return new Localizacao(x + offsetX, y + offsetY);
+            Localizacao local = new Localizacao(x + offsetX, y + offsetY);
+            Iterator<Ator> itens = Simulacao.getAtores().iterator();
+            while(itens.hasNext()) {
+                Object obj = itens.next();
+                if(obj instanceof BancoAreia){
+                    BancoAreia banco = (BancoAreia)obj;
+                    if((banco.getLocalizacaoAtual().x == local.x) && (banco.getLocalizacaoAtual().y == local.y)){
+                        local = new Localizacao(x + offsetX + 1, y + offsetY + 1);
+                    }
+                }else if(obj instanceof Navio){
+                    Navio navio = (Navio)obj;
+                    if((navio.getLocalizacaoAtual().x == local.x) && (navio.getLocalizacaoAtual().y == local.y)){
+                        local = new Localizacao(x + offsetX + 1, y + offsetY + 1);
+                    }
+                }
+            }
+            return local;
         }
         else {
             return localizacaoDestino;
@@ -63,17 +79,6 @@ public class Localizacao {
     }
 
     /**
-     * @return A representacao da localizacao.
-     
-    @Override
-    public String toString()
-    {
-        return "(" + x + ", " + y + ")";
-    }*/
-
-    
-    
-    /**
      * Calcula o número de movimentos necessários para chegar ao destino.
      * @param destino O destino que se deseja alcançar.
      * @return O número de movimentos necessários.
@@ -84,17 +89,6 @@ public class Localizacao {
         return Math.max(xDist, yDist);
     }
     
-
-    /**
-     * Use the top 16 bits for the y value and the bottom for the x.
-     * Except for very big grids, this should give a unique hash code
-     * for each (x, y) pair.
-     * @return A hashcode for the location.
-     */
- //   public int hashCode()
-  //  {
- //       return (y << 16) + x;
- //   }
 
     /**
      * Pega o valor da coordenada x.

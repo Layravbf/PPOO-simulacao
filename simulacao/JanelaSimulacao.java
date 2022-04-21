@@ -14,7 +14,6 @@ public class JanelaSimulacao extends JFrame implements Ator {
     
     /**
      * Construtor da classe JanelaSimulacao.
-     * 
      * @param mapa O mapa que será usado.
      */
     public JanelaSimulacao(Mapa mapa) {
@@ -98,7 +97,7 @@ public class JanelaSimulacao extends JFrame implements Ator {
                     yScale = VIEW_SCALING_FACTOR;
                 }
             }
-            g.setColor(Color.white);
+            g.setColor(Color.cyan);
             g.fillRect(0, 0, tamanho.width, tamanho.height);
             g.setColor(Color.gray);
             for(int i = 0, x = 0; x < tamanho.width; i++, x = i * xScale) {
@@ -123,15 +122,8 @@ public class JanelaSimulacao extends JFrame implements Ator {
          */
         public void paintComponent(Graphics g) {
             if(imagemMapa != null) {
-            //    Dimension currentSize = getSize();
-           //     if(size.equals(currentSize)) {
-                    g.drawImage(imagemMapa, 0, 0, null);
-                }
-          //      else {
-                    // Rescale the previous image.
-          //          g.drawImage(imagemMapa, 0, 0, currentSize.width, currentSize.height, null);
-         //       }
-          //  }
+                g.drawImage(imagemMapa, 0, 0, null);
+            }
         }
     }
 }

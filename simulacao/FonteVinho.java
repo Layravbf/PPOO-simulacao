@@ -1,5 +1,6 @@
 package simulacao;
 import java.util.Random;
+import java.util.Iterator;
 
 /**
  * Gerar os vinhos no mapa durante a execução.
@@ -30,10 +31,8 @@ public class FonteVinho implements Ator {
 
     /**
      * Gera vinhos aleatoriamente
-     * Conta as coletas perdidas
      */
-    public void executarAcao()
-    {
+    public void executarAcao() {
         if(rand.nextDouble() <= CREATION_PROBABILITY) {
             Vinho vinho = criarVinho();
             if(empresa.solicitacaoRetirada(vinho)) {

@@ -26,17 +26,8 @@ public class Vinho implements ItemDesenhavel {
         }
         this.retirada = retirada;
         this.destino = destino;
-        imagemVinho = new ImageIcon(getClass().getResource("imagens/vinho.jpg")).getImage();
+        imagemVinho = new ImageIcon(getClass().getResource("imagens/vinho.png")).getImage();
     }
-    
-    /**
-     * @return A string representation of this person.
-     */
-    /*public String toString()
-    {
-        return "vinho travelling from " +
-        retirada + " to " + destino;
-    }*/
 
     /**
      * Pega a imagem do vinho que será exibida.

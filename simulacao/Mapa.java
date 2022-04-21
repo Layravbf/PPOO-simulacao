@@ -69,15 +69,6 @@ public class Mapa {
             throw new IllegalArgumentException(item + " não está no mapa.");
         }
     }
-        
-
-    /**
-     * @return A string que representa o mapa.
-     
-    public String toString() {
-        return "Mapa size " + largura + " by " + altura;
-    }*/
-    
     
     /**
      * Pega a largura do mapa.
