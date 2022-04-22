@@ -29,6 +29,7 @@ public class Navio implements ItemDesenhavel, Ator {
     /**
      * Movimenta o navio até o local de destino.
      */
+    @Override
     public void executarAcao() {
         Localizacao destino = getLocalizacaoDestino();
         if(destino != null) {
@@ -50,6 +51,7 @@ public class Navio implements ItemDesenhavel, Ator {
      * Pega a localização atual do navio.
      * @return A localização atual.
      */
+    @Override
     public Localizacao getLocalizacaoAtual() {
         return localizacaoAtual;
     }
@@ -148,6 +150,7 @@ public class Navio implements ItemDesenhavel, Ator {
     /**
      * Define qual imagem é a do estado atual: imagem do navio com o vinho dentro ou imagem vazia.
      */
+    @Override
     public Image getImagem() {
         if(vinho != null) {
             return imagemNavioComVinho;

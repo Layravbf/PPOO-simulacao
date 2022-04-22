@@ -12,6 +12,7 @@ public class BancoAreia implements ItemDesenhavel, Ator {
 
     /**
      * Construtor da classe BancoAreia.
+     *
      * @param localizacao A localização do banco de areia.
      * @throws NullPointerException Se a localização for nula.
      */
@@ -27,6 +28,7 @@ public class BancoAreia implements ItemDesenhavel, Ator {
      * Pega a imagem do banco de areia que será exibida.
      * @return A imagem do banco de areia.
      */
+    @Override
     public Image getImagem() {
         return imagemBancoAreia;
     }
@@ -34,12 +36,14 @@ public class BancoAreia implements ItemDesenhavel, Ator {
     /**
      * Ações do banco de areia
     */
+    @Override
     public void executarAcao(){ }
     
     /**
      * Pega a localização atual do banco de areia
      * @return A localização.
      */
+    @Override
     public Localizacao getLocalizacaoAtual() {
         return localizacao;
     }

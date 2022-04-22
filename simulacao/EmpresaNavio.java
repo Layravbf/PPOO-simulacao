@@ -52,7 +52,7 @@ public class EmpresaNavio  {
     /**
      * Um navio chegou ao ponto de coleta.
      * @param navio O navio que está no ponto de coleta.
-     * @throws MissingPassengerException Se não tiver vinho esperando para ser retirado.
+     * @throws VinhoDesaparecidoException Se não tiver vinho esperando para ser retirado.
      */
     public void chegouNaRetirada(Navio navio) {
         Vinho vinho = tarefas.remove(navio);

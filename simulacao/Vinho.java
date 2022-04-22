@@ -33,6 +33,7 @@ public class Vinho implements ItemDesenhavel {
      * Pega a imagem do vinho que será exibida.
      * @return A imagem do vinho.
      */
+    @Override
     public Image getImagem() {
         return imagemVinho;
     }
@@ -41,6 +42,7 @@ public class Vinho implements ItemDesenhavel {
      * Pega a localização atual do vinho.
      * @return A localização de retirada.
      */
+    @Override
     public Localizacao getLocalizacaoAtual() {
         return retirada;
     }

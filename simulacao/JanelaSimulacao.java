@@ -31,6 +31,7 @@ public class JanelaSimulacao extends JFrame implements Ator {
      /**
      * Mostra o estado atual do mapa.
      */
+    @Override
     public void executarAcao() {
         visaoMapa.preparePaint();
         Iterator itens = mapa.getItens();
@@ -74,6 +75,7 @@ public class JanelaSimulacao extends JFrame implements Ator {
         /**
          * Informa para o gerenciador GUI o tamanho.
          */
+        @Override
         public Dimension getPreferredSize() {
             return new Dimension(mapaLargura * VIEW_SCALING_FACTOR, mapaAltura * VIEW_SCALING_FACTOR);
         }

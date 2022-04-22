@@ -46,12 +46,20 @@ public class Localizacao {
                 if(obj instanceof BancoAreia){
                     BancoAreia banco = (BancoAreia)obj;
                     if((banco.getLocalizacaoAtual().x == local.x) && (banco.getLocalizacaoAtual().y == local.y)){
-                        local = new Localizacao(x + offsetX + 1, y + offsetY + 1);
+                        if(offsetX == 1){
+                            local = new Localizacao(x + offsetX, y + offsetY + 1);
+                        }else if(offsetX == -1){
+                            local = new Localizacao(x + offsetX, y + offsetY + 1);
+                        }else if(offsetY == 1){
+                            local = new Localizacao(x + offsetX + 1 , y + offsetY);
+                        }else if(offsetY == -1){
+                            local = new Localizacao(x + offsetX + 1 , y + offsetY);
+                        }
                     }
                 }else if(obj instanceof Navio){
                     Navio navio = (Navio)obj;
-                    if((navio.getLocalizacaoAtual().x == local.x) && (navio.getLocalizacaoAtual().y == local.y)){
-                        local = new Localizacao(x + offsetX + 1, y + offsetY + 1);
+                    if((navio.getLocalizacaoAtual().getX() == local.x) && (navio.getLocalizacaoAtual().getY() == local.y)){
+                        local = new Localizacao(x + offsetX - 1, y + offsetY + 1);
                     }
                 }
             }
@@ -67,7 +75,6 @@ public class Localizacao {
      * @return true: se a localizacao é igual.
      *         false: caso contrario.
      */
-    @Override
     public boolean equals(Object outra) {
         if(outra instanceof Localizacao) {
             Localizacao outraLocalizacao = (Localizacao) outra;
@@ -77,18 +84,6 @@ public class Localizacao {
             return false;
         }
     }
-
-    /**
-     * Calcula o número de movimentos necessários para chegar ao destino.
-     * @param destino O destino que se deseja alcançar.
-     * @return O número de movimentos necessários.
-     */
-    public int distancia(Localizacao destino) {
-        int xDist = Math.abs(destino.getX() - x);
-        int yDist = Math.abs(destino.getY() - y);
-        return Math.max(xDist, yDist);
-    }
-    
 
     /**
      * Pega o valor da coordenada x.
